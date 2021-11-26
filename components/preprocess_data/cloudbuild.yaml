@@ -1,0 +1,6 @@
+steps:
+    - name: 'gcr.io/cloud-builders/docker'
+      dir:  'pipeline-components/components/extract_data'   # remove-for-manual
+      args: [ 'build', '-t', 'gcr.io/dotted-lens-131912/kfp-pipeline-extract_data:latest', '.' ]  # tag the image
+images:
+    - 'gcr.io/dotted-lens-131912/kfp-pipeline-extract_data:latest'
