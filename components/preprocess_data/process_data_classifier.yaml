@@ -1,0 +1,21 @@
+name: Process data for classifier
+description: Prepares the train & test data and performs scaling
+
+inputs:
+- {name: Input Data, type: GCSPath, description: 'Path where input data is stored.'}
+outputs:
+- {name: Output Data, type: GCSPath, description: 'Path where output data is stored'}
+
+implementation:
+  container:
+    image: gcr.io/dotted-lens-131912/preprocess-data
+    command: [
+      python, process_data_rul_classifier.py,
+
+      --input_data,
+      {inputPath: Input Data},
+
+      --output_data,
+      {outputPath: Output Data},
+
+    ]
