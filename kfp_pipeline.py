@@ -13,8 +13,8 @@ from kfp import dsl
               description='Applies extraction of data and pre processing it.')
 def first_pipeline():
     # Loads the yaml manifest for components
-    extract_data = kfp.components.load_component_from_file('components\extract_data\cloudbuild.yaml')
-    preprocess_data = kfp.components.load_component_from_file('components\preprocess\cloudbuild.yaml')
+    extract_data = kfp.components.load_component_from_file('components\extract_data\extract_data.yaml')
+    preprocess_data = kfp.components.load_component_from_file('components\preprocess\preprocess_data_classifier.yaml')
 
     # Run task
     extract_task = extract_data()
