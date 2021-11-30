@@ -1,0 +1,21 @@
+name: Linear Regression
+description: Trains a Linear Regression Regressor
+
+inputs:
+- {name: Data, type: GCSPath, description: 'Path where data is stored.'}
+outputs:
+- {name: r2, type: Float, description: 'R2 metric'}
+
+implementation:
+  container:
+    image: gcr.io/dotted-lens-131912/kfp-pipeline-linear_regression:latest
+    command: [
+      python, linear_regression_rul.py,
+
+      --data,
+      {inputPath: Data},
+
+      --r2,
+      {outputPath: r2},
+
+    ]
