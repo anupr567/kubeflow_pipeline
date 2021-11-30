@@ -17,8 +17,8 @@ def _download_data(args):
     # Extract NASA dataset from online
     r = requests.get('https://ti.arc.nasa.gov/c/6/')
     z = zipfile.ZipFile(io.BytesIO(r.content))
-    z.extract('train_FD001.txt')
-    data = pd.read_table('train_FD001.txt',sep='\s+', header=None)
+    z.extract('train_FD002.txt')
+    data = pd.read_table('train_FD002.txt',sep='\s+', header=None)
     data = data.to_numpy()
     
     # Creates a json object based on `data`
