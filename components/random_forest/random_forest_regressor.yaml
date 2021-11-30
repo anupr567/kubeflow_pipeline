@@ -1,0 +1,21 @@
+name: Random Forest Regressor
+description: Trains a Random Forest Regressor
+
+inputs:
+- {name: Data, type: GCSPath, description: 'Path where data is stored.'}
+outputs:
+- {name: r2, type: Float, description: 'R2 metric'}
+
+implementation:
+  container:
+    image: gcr.io/dotted-lens-131912/kfp-pipeline-random_forest:latest
+    command: [
+      python, random_forest_regressor_rul.py,
+
+      --data,
+      {inputPath: Data},
+
+      --r2,
+      {outputPath: r2},
+
+    ]
