@@ -23,7 +23,7 @@ cat <<EOM > cloudbuild.yaml
 steps:
     - name: 'gcr.io/cloud-builders/docker'
       dir:  '${DIR_IN_REPO}'   # remove-for-manual
-      args: [ 'build', '-t', 'gcr.io/${PROJECT_ID}/kfp-pipeline-${CONTAINER_NAME}:${TAG_NAME}', '.' ]
+      args: [ 'build', '-t', 'gcr.io/${PROJECT_ID}/${CONTAINER_NAME}:${TAG_NAME}', '.' ]
 images:
     - 'gcr.io/${PROJECT_ID}/${CONTAINER_NAME}:${TAG_NAME}'
 EOM
