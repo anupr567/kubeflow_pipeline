@@ -44,11 +44,7 @@ def process_data(args):
     X_test_scaled = X_test_scaled.to_numpy()
     
     # convert into json object
-    data = {'train_len' : np.size(X_train),
-            'x_train' : X_train.values.tolist(),
-            'y_train' : y_train.values.tolist(),
-            'x_test' : X_test.values.tolist(),
-            'y_test' : y_test.values.tolist()}
+    data = {}
     data_json = json.dumps(data)
 
     # Saves the json object into a file
