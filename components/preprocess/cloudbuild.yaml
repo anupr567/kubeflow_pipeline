@@ -3,10 +3,6 @@ steps:
   - name: 'gcr.io/cloud-builders/docker'
     dir: 'components/preprocess'
     args: ['build', '-t',
-           'gcr.io/dotted-lens-131912/kfp-pipeline-preprocess:latest',
-           '.']
-
-  # Docker Push
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'image',
-           'gcr.io/dotted-lens-131912/kfp-pipeline-preprocess:latest']
+           'gcr.io/dotted-lens-131912/kfp-pipeline-preprocess:latest', '.']
+images:
+    - 'gcr.io/dotted-lens-131912/kfp-pipeline-preprocess:latest'
