@@ -47,7 +47,9 @@ def process_data(args):
     data = {'x_train' : X_train_scaled.tolist(),
             'y_train' : y_train.tolist(),
             'x_test' : X_test_scaled.tolist(),
-            'y_test' : y_test.tolist()}
+            'y_test' : y_test.tolist()},
+            'x_train_len': len(X_train_scaled.tolist())
+            }
     data_json = json.dumps(data)
 
     # Saves the json object into a file
