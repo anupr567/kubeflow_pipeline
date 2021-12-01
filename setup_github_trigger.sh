@@ -19,7 +19,7 @@ create_github_trigger() {
     gcloud beta builds triggers create github \
       --build-config="${DIR_IN_REPO}/cloudbuild.yaml" \
       --included-files="${DIR_IN_REPO}/**" \
-      --branch-pattern="^master$" \
+      --branch-pattern="^main$" \                                # master branch has a name as "main" in github
       --repo-name=${REPO_NAME} --repo-owner=${REPO_OWNER}
 }
 
