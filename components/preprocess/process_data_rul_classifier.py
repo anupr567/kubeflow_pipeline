@@ -44,11 +44,11 @@ def process_data(args):
     X_test_scaled = X_test_scaled.to_numpy()
     
     # convert into json object
-    data = {'x_train' : X_train_scaled.tolist(),
+    data = {'x_train_len' : len(X_train),
+            'x_train' : X_train_scaled.tolist(),
             'y_train' : y_train.tolist(),
             'x_test' : X_test_scaled.tolist(),
-            'y_test' : y_test.tolist(),
-            'x_train_len': len(X_train_scaled.tolist())
+            'y_test' : y_test.tolist()
             }
     data_json = json.dumps(data)
 
