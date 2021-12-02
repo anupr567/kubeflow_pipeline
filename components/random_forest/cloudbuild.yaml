@@ -1,12 +1,9 @@
 steps:
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
-    dir: 'components/random_forest'
+    dir: 'random_forest'
     args: ['build', '-t',
            'gcr.io/dotted-lens-131912/kfp-pipeline-random-forest:latest',
            '.']
-
-  # Docker Push
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'image',
-           'gcr.io/dotted-lens-131912/kfp-pipeline-random_forest:latest']
+images:
+    - 'gcr.io/dotted-lens-131912/kfp-pipeline-random-forest:latest'
