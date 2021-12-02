@@ -20,6 +20,7 @@ def first_pipeline():
     # Run task
     extract_task = extract_data()
     preprocess_task = preprocess_data(extract_task.output)
+    preprocess_task.execution_options.caching_strategy.max_cache_staleness = "P0D"    # disable caching
     logistic_regression_task = linear_regression(preprocess_task.output)
     random_forest_classifier_task = random_forest_classifier(preprocess_task.output)
 
