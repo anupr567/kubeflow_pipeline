@@ -8,7 +8,7 @@ outputs:
 
 implementation:
   container:
-    image: gcr.io/dotted-lens-131912/kfp-pipeline@sha256:4aa5c363d4902aa55a276c912a1722c67ff2f6c63dcd3240b3f268e54d712723
+    image: gcr.io/dotted-lens-131912/kfp-pipeline-random_forest:latest
     command: [
       python, random_forest_classifier_rul.py,
 
