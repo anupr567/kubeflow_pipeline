@@ -1,12 +1,8 @@
 steps:
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
-    dir: 'components/logistic_regression'
+    dir: 'logistic_regression'
     args: ['build', '-t',
-           'gcr.io/dotted-lens-131912/kfp-pipeline-logistic_regression:latest',
-           '.']
-
-  # Docker Push
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'image',
-           'gcr.io/dotted-lens-131912/kfp-pipeline-logistic_regression:latest']
+           'gcr.io/dotted-lens-131912/kfp-pipeline-logistic_regression:latest', '.']
+images:
+    - 'gcr.io/dotted-lens-131912/kfp-pipeline-logistic_regression:latest'
