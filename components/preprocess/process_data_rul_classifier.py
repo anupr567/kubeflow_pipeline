@@ -60,7 +60,7 @@ def split(df):
     cols_normalize = df.columns.difference(['unit_number','time_in_cycles','RUL','label'])
     X = df[cols_normalize]
     y = df['label']
-    X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.4)
+    X_train, X_test, y_train, y_test = train_test_split(X,y,test_size=0.2)
     return(X_train,X_test,y_train,y_test)
 
 def scaling(X_train, X_test):
