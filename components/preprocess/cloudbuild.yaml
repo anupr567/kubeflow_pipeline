@@ -1,7 +1,7 @@
 steps:
   # Docker Build
   - name: 'gcr.io/cloud-builders/docker'
-    dir: 'components/preprocess'
+    dir: 'preprocess'
     args: ['build', '-t',
            'gcr.io/dotted-lens-131912/kfp-pipeline-preprocess:latest', '.']
 images:
