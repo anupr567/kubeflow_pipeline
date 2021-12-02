@@ -15,15 +15,15 @@ REPO_OWNER=anupr567
 
 
 create_github_trigger() {
-    DIR_IN_REPO=$(pwd | sed "s%${REPO_NAME}/% %g" | awk '{print $2}')
+    DIR_IN_REPO=$(pwd | sed "s%${REPO_NAME}/% %g" | awk '{print $2}')   # getting this path to locate cloudbuild.yaml file
     gcloud beta builds triggers create github \
-      --build-config="${DIR_IN_REPO}/cloudbuild.yaml" \
+      --build-config="${DIR_IN_REPO}/cloudbuild.yaml" \          # using cloudbuild.yaml file for build
       --included-files="${DIR_IN_REPO}/**" \
       --branch-pattern="^main$" \                                # master branch has a name as "main" in github
-      --repo-name=${REPO_NAME} --repo-owner=${REPO_OWNER}
+      --repo-name=${REPO_NAME} --repo-owner=${REPO_OWNER}        # specifying Github repo details
 }
 
-for container_dir in $(ls -d */ | sed 's%/%%g'); do
+for container_dir in $(ls -d */ | sed 's%/%%g'); do              # going into each component directory to add trigger
     cd $container_dir
     create_github_trigger
     cd ..
